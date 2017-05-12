@@ -4,7 +4,7 @@ production:
   url: <%= ENV["REDISCLOUD_URL"] %>
 
 development:
-  adapter: async
+  adapter: redis
 
 test:
   adapter: async
