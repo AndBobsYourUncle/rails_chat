@@ -20,7 +20,7 @@ services:
       - test_redis
     environment:
       - VIRTUAL_HOST=chat_app.localhost
-      - VIRTUAL_PORT=9001
+      - VIRTUAL_PORT=443
       - LETSENCRYPT_HOST=chat_app.localhost
       - LETSENCRYPT_EMAIL=npage85@gmail.com
       - SECRET_KEY_BASE=testy123
