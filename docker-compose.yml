@@ -1,0 +1,35 @@
+version: '2'
+
+services:
+  test_redis:
+    image: redis
+    container_name: test_redis
+    networks:
+      - app_network
+  chat-app:
+    build:
+      context: .
+    image: chat-app
+    command: bash -c "rails-init && /sbin/my_init"
+    container_name: chat-app
+    restart: always
+    networks:
+      - dothroku_nginx
+      - app_network
+    depends_on:
+      - test_redis
+    environment:
+      - VIRTUAL_HOST=chat_app.localhost
+      - VIRTUAL_PORT=9001
+      - LETSENCRYPT_HOST=chat_app.localhost
+      - LETSENCRYPT_EMAIL=npage85@gmail.com
+      - SECRET_KEY_BASE=testy123
+      - REDISCLOUD_URL=redis://test_redis:6381
+networks:
+  dothroku_nginx:
+    external:
+      name: dothroku_nginx
+  app_network:
+
+#${SECRET_KEY_BASE}
+
