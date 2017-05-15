@@ -24,7 +24,7 @@ services:
       - LETSENCRYPT_HOST=chat_app.localhost
       - LETSENCRYPT_EMAIL=npage85@gmail.com
       - SECRET_KEY_BASE=testy123
-      - REDISCLOUD_URL=redis://test_redis:6381
+      - REDISCLOUD_URL=redis://test_redis:6379
 networks:
   dothroku_nginx:
     external:
